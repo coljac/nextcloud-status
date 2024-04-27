@@ -17,22 +17,22 @@ The first time you run, it will prompt you for your NextCloud url, username and 
 
 For help:
 
-!(Help)[docs/help.gif]
+![Help](docs/help.gif)
 
 Or for sub-commands:
 
-!(Help subcommand)[docs/help-sub.gif]
+![Help subcommand](docs/help-sub.gif)
 
 To set the status and message:
 
-!(Set status)[docs/set.gif]
+![Set status](docs/set.gif)
 
 To use an emoji:
 
-!(Emoji)[docs/set-emoji.gif]
+![Emoji](docs/set-emoji.gif)
 
 To use github markup:
 
-!(Emoji github)[docs/set-gh.gif]
+![Emoji github](docs/set-gh.gif)
 
 Please create an issue with any bugs.
