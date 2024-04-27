@@ -11,10 +11,12 @@ import sys
 import json
 from typing_extensions import Annotated
 from datetime import datetime, timedelta
+from pkg_resources import resource_filename
+
 
 def get_emoji(emoji_code):
     """Return the emoji if it's in the list, otherwise None."""
-    with open("gh_emoji.json", "r") as f:
+    with open(resource_filename("nextcloud_status", "gh_emoji.json"), "r") as f:
         emoji_map = json.loads(f.read())
     return emoji_map.get(emoji_code)
 
@@ -180,6 +182,9 @@ def get_status():
     else:
         print(f"Failed to fetch status, or no status set: {response.text}")
 
-if __name__ == "__main__":
+def main():
     app()
+
+if __name__ == "__main__":
+    main()
 

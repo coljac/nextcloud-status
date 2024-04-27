@@ -12,9 +12,10 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages(where='src'),
     include_package_data=True,
+    package_data={'nextcloud_status': ['gh_emoji.json']},
     install_requires=[
-        'requests',
-        'typer'
+        'requests>=2.25.1',
+        'typer>=0.12.3'
     ],
     entry_points={
         'console_scripts': [
@@ -26,5 +27,5 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
