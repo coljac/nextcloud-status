@@ -1,9 +1,9 @@
 # VHS documentation
 #
 # Output:
-#   Output <path>.gif               Create a GIF output at the given <path>
-#   Output <path>.mp4               Create an MP4 output at the given <path>
-#   Output <path>.webm              Create a WebM output at the given <path>
+#   Output help.gif
+#   Output help.gif
+#   Output help.gif
 #
 # Require:
 #   Require <string>                Ensure a program is on the $PATH to proceed
@@ -60,7 +60,7 @@ Output help.gif
 Require echo
 
 Set Shell "bash"
-Set FontSize 32
+Set FontSize 14
 Set Width 1200
 Set Height 600
 
