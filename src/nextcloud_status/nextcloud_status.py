@@ -3,6 +3,7 @@
 import typer
 import os
 import configparser
+oldprint = print
 from rich import print
 from enum import Enum
 import requests 
@@ -181,6 +182,16 @@ def get_status():
         print(f"{colours[status_data['status']]}{status_data['status']}[/]  {status_data['message']} {status_data['icon']}")
     else:
         print(f"Failed to fetch status, or no status set: {response.text}")
+
+@app.command()
+def list_emoji():
+    """
+    List the emoji text equivalents for suppling to --icon.
+    """
+    with open(resource_filename("nextcloud_status", "gh_emoji.json"), "r") as f:
+        emoji_map = json.loads(f.read())
+    for key, val in emoji_map.items():
+        oldprint(f"{key:30s}{val}")
 
 def main():
     app()
