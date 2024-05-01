@@ -16,7 +16,7 @@ from pkg_resources import resource_filename
 
 
 def get_emoji(emoji_code):
-    """Return the emoji if it's in the list, otherwise None."""
+    """Return the emoji list."""
     with open(resource_filename("nextcloud_status", "gh_emoji.json"), "r") as f:
         emoji_map = json.loads(f.read())
     return emoji_map.get(emoji_code)
