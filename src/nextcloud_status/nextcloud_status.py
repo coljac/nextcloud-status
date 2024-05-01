@@ -32,6 +32,12 @@ class StatusEnum(str, Enum):
 app = typer.Typer()
 
 colours = {"online": "[bold green]", "away": "[bold yellow]", "dnd": "[bold blue]", "invisible": "[white]", "offline": "[gray]"}
+colours_pango = {"online": ["<span color='green' weight='bold>", "</span>"], 
+                 "away": ["<span color='yellow' weight='bold'>", "</span>"],
+                 "dnd": ["<span color='blue' weight='bold'>", "</span>"], 
+                 "invisible": ["", ""],
+                 "offline": ["<span color='grey'>", "</span>"]
+                 }
 
 """
 Convert a time string to a Unix timestamp for today or tomorrow, for specifying
@@ -165,7 +171,9 @@ def set_status(status: StatusEnum,
     
 
 @app.command()
-def get_status():
+def get_status(
+               pango: Annotated[bool, typer.Option(help="Use pango markup")] = False
+        ):
     """
     Get the current status from the server.
     """
@@ -179,7 +187,11 @@ def get_status():
     response = requests.get(url, auth=HTTPBasicAuth(username, app_token), headers=headers)
     if response.status_code == 200:
         status_data = response.json()['ocs']['data']
-        print(f"{colours[status_data['status']]}{status_data['status']}[/]  {status_data['message']} {status_data['icon']}")
+        if pango:
+            a, b = colours_pango[status_data['status']]
+            oldprint(f"{a}{status_data['status']}{b}  {status_data['message']} {status_data['icon']}")
+        else:
+            print(f"{colours[status_data['status']]}{status_data['status']}[/]  {status_data['message']} {status_data['icon']}")
     else:
         print(f"Failed to fetch status, or no status set: {response.text}")
 
