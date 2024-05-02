@@ -15,6 +15,10 @@ for the latest version if it's not on PyPi.
 
 The first time you run, it will prompt you for your NextCloud url, username and password. I recommend making an app-specific password: [See](https://help.nextcloud.com/t/where-to-create-app-password/157454). Config will be in `~/.config/nextcloud-status` on unix or in `AppData/Local` on Windows.
 
+There's an experimental gui, try `nextcloud-status gui`.
+
+To for a helpful emoji list, try `nextcloud-status list-emoji`.
+
 For help:
 
 ![Help](docs/help.gif)

@@ -14,7 +14,6 @@ from typing_extensions import Annotated
 from datetime import datetime, timedelta
 from pkg_resources import resource_filename
 
-
 def get_emoji(emoji_code):
     """Return the emoji list."""
     with open(resource_filename("nextcloud_status", "gh_emoji.json"), "r") as f:
@@ -151,6 +150,20 @@ def update_status(server_url, username, app_token, status_type="online", status_
     else:
         print(f"[red]Failed to update status:[/red] {response.text}")
         sys.exit(1)
+
+
+@app.command()
+def gui():
+    """
+        Show a gui to set the status and message. (PyQt5 required)
+    """
+    try:
+        import PyQt5
+        import status_gui
+        status_gui.show()
+    except Exception as e:
+        # print(e)
+        print("[red]PyQt5 required. Try[/red] pip install pyQt5")
 
 
 @app.command()
