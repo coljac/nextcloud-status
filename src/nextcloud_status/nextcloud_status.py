@@ -159,8 +159,8 @@ def gui():
     """
     try:
         import PyQt5
-        import status_gui
-        status_gui.show()
+        from .status_gui import show
+        show()
     except Exception as e:
         # print(e)
         print("[red]PyQt5 required. Try[/red] pip install pyQt5")

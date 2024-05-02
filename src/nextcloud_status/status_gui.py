@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, QComboBox,
                              QVBoxLayout, QPushButton, QApplication, QListWidget, QListWidgetItem, QGridLayout)
 from PyQt5.QtCore import Qt, QVariant, QSize, QCoreApplication
 from PyQt5.QtGui import QFont
-from nextcloud_status import StatusEnum, set_status
+from .nextcloud_status import StatusEnum, set_status
 from pkg_resources import resource_filename
 import json
 

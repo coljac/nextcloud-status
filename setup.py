@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='nextcloud-status',
-    version='0.1.0',
+    version='0.2.1',
     description='A CLI tool for updating NextCloud status',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
