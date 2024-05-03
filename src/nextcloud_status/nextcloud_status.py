@@ -31,7 +31,7 @@ class StatusEnum(str, Enum):
 app = typer.Typer()
 
 colours = {"online": "[bold green]", "away": "[bold yellow]", "dnd": "[bold blue]", "invisible": "[white]", "offline": "[gray]"}
-colours_pango = {"online": ["<span color='green' weight='bold>", "</span>"], 
+colours_pango = {"online": ["<span color='green' weight='bold'>", "</span>"], 
                  "away": ["<span color='yellow' weight='bold'>", "</span>"],
                  "dnd": ["<span color='blue' weight='bold'>", "</span>"], 
                  "invisible": ["", ""],
