@@ -200,11 +200,17 @@ def get_status(
     response = requests.get(url, auth=HTTPBasicAuth(username, app_token), headers=headers)
     if response.status_code == 200:
         status_data = response.json()['ocs']['data']
+        msg = status_data.get("message", None)
+        icon = status_data.get("icon", None)
+        if msg is None:
+            msg = "-"
+        if icon is None:
+            icon = " "
         if pango:
             a, b = colours_pango[status_data['status']]
-            oldprint(f"{a}{status_data['status']}{b}  {status_data['message']} {status_data['icon']}")
+            oldprint(f"{a}{status_data['status']}{b}  {msg} {icon}")
         else:
-            print(f"{colours[status_data['status']]}{status_data['status']}[/]  {status_data['message']} {status_data['icon']}")
+            print(f"{colours[status_data['status']]}{status_data['status']}[/]  {msg} {icon}")
     else:
         print(f"Failed to fetch status, or no status set: {response.text}")
 
